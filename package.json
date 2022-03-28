@@ -1,0 +1,35 @@
+{
+  "name": "Sociopath",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mac_test": "npm run mac_clean && wdio wdio.conf.js && npm run mac_report",
+    "mac_report": "allure generate --clean",
+    "mac_clean": "rm -rf allure-results && rm -rf allure-report",
+    "win_test": "npx wdio wdio.conf.js",
+    "win_report": "allure generate --clean",
+    "win_clean": "rd allure-results /s/q && rd allure-report /s/q"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irina0606/Sociopath2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irina0606/Sociopath2/issues"
+  },
+  "homepage": "https://github.com/irina0606/Sociopath2#readme",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^7.19.1",
+    "@wdio/cli": "^7.19.1",
+    "@wdio/local-runner": "^7.19.1",
+    "@wdio/mocha-framework": "^7.19.1",
+    "@wdio/spec-reporter": "^7.19.1",
+    "chromedriver": "^99.0.0",
+    "wdio-chromedriver-service": "^7.3.2",
+    "wdio-wait-for": "^2.2.4"
+  }
+}
