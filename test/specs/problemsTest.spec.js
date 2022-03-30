@@ -27,22 +27,28 @@ describe('Problems Page', async() => {
         expect (ProblemsPage.columnsTooltip).toBeDisplayedInViewport();
         const columns = await ProblemsPage.getColumnNames (await ProblemsPage.columnNamesArr);         // ask
         console.log(columns + "+++++++++++++++++++++++++++++++++++++++");
-        expect (ProblemsPage.columnsTooltip).not.toHaveValueContaining(columnArray.toString());     //ask
-        expect(ProblemsPage.columnNamesArr).toExist();
-        await ProblemsPage.columns.click();
-        expect(ProblemsPage.columnNamesArr).not.toExist();
+        //expect (ProblemsPage.columnsTooltip).not.toHaveValueContaining(columnArray.toString());     //ask
+        // expect(ProblemsPage.toggleColumnButtons).toExist();
+        // await ProblemsPage.columns.click();
+        // expect(ProblemsPage.toggleColumnButtons).not.toExist();
     });
 
-    it ("Should verify the number of columns", async () => {
-        await ProblemsPage.columns.click();
-        expect (ProblemsPage.columnsTooltip).toBeDisplayedInViewport();
-        const columns = await ProblemsPage.columnNamesArr.length;         // ask
-        console.log(columns + "+++++++++++++++++++++++++++++++++++++++");
-        expect(columns).toEqual(5);
-    });
-
-    it ("Should untoggle and toggle any column", async () => {
-        await ProblemsPage.toggleColumnNames(await ProblemsPage.columnNamesArr);
-        await ProblemsPage.toggleColumnNames(await ProblemsPage.columnNamesArr);
-    })
+    // it ("Should verify the number of columns", async () => {
+    //     //await ProblemsPage.columns.click();
+    //     expect (ProblemsPage.columnsTooltip).toBeDisplayedInViewport();
+    //     const columns = await (ProblemsPage.toggleColumnButtons.length);         // ask
+    //     console.log(columns + "+++++++++++++++++++++++++++++++++++++++");
+    //     expect(columns).toEqual(5);
+    // });
+    //
+    // it ("Should untoggle and toggle any column", async () => {
+    //     await ProblemsPage.toggleColumnNames(await ProblemsPage.toggleColumnButtons);
+    //     const untoggle = await ProblemsPage.getColumnNames(await ProblemsPage.headerArrColumnNames);
+    //     console.log(untoggle + "++++++++++++++++++++++++++++++++++++++++++++++++++")
+    //     expect(untoggle).toBeDisplayedInViewport();
+    //     await ProblemsPage.toggleColumnNames(await ProblemsPage.toggleColumnButtons);
+    //     const toggle = await ProblemsPage.getColumnNames(await ProblemsPage.headerArrColumnNames);
+    //     console.log(toggle + "++++++++++++++++++++++++++++++++++++++++++++++++++")
+    //     expect(toggle).toBeDisplayedInViewport();          //ask
+    // })
 });

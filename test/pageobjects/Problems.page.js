@@ -26,6 +26,10 @@ class ProblemsPage extends Page {
         return $ ("//button[@aria-label='Export']");
     }
 
+    get headerArrColumnNames () {
+        return $$ ("//div[@class='MuiDataGrid-columnHeaderTitle css-cc8tf1']");
+    }
+
     get problemNameColumn () {
         return $ ("//div[contains(text(),'Problem name')]");
     }
@@ -62,13 +66,22 @@ class ProblemsPage extends Page {
         return $ ("//div[contains(@role,'tooltip')]");
     }
 
-    get columnNamesArr() {
+    get toggleColumnButtons() {
         return $$ ("//input[@class='MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3']");
     }
 
-    // get columnsTooltipArr () {
-    //     return $$ ("//div[@class='MuiDataGrid-columnsPanelRow css-fc3ngs']");
-    // }
+    get columnNamesArr() {
+        return $$ ("//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-9l3uo3']");
+    }
+
+    get EachToggledColumn () {
+        return $$ ("//span[@class='MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root Mui-checked css-1nr2wod']");
+    }
+
+    get EachUntoggledColumn () {
+        return $$ ("//span[@class='MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-1nr2wod']");
+    }
+
     get columnsTooltipEachElem () {
         return $ ("//span[@class='MuiSwitch-thumb css-19gndve']");
     }
@@ -110,13 +123,24 @@ class ProblemsPage extends Page {
     }
 
     async getColumnNames (list) {
-        const names = [];
-        await list.map(async (elem) => names.push(await elem.getText()));
-        return names;
+        // const names = [];
+        // list.map(async (elem) => list.push(await (elem.getText())));
+        // return names;
+
+        for (let i = 0; i < list.length; i++) {
+            await list[i].getText();
+        }
     }
 
     // async toggleColumnNames (list) {
-    //     return list.forEach((elem, index) => (elem.click(index)));
+    //     return list.forEach(async (elem, index) => (await elem.click(index)));
+    // }
+
+    // async toggleColumnNames (list) {
+    //     for (const elem of list) {
+    //         const index = list.indexOf(elem);
+    //         await elem.click(index);
+    //     }
     // }
 
     async toggleColumnNames (list) {

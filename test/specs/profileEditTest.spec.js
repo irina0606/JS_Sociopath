@@ -69,7 +69,7 @@ describe("Profile edit page", async () => {
         const letters = "By";
         await ProfileEditPage.langInputField.click();
         await ProfileEditPage.langInputField.setValue(letter);
-        const arrSelectedLang = await ProfileEditPage.getSpecificLangs( langListDropdown, letters.toLowerCase());
+        const arrSelectedLang = await ProfileEditPage.getSpecificLangs(langListDropdown, letters.toLowerCase());
         console.log("+++++++++++++++" + arrSelectedLang);
         console.log("+++++++++++++++" + arrSelectedLang.length);
         expect(arrSelectedLang.length).toEqual(1);
