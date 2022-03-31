@@ -9,6 +9,14 @@ class ProblemsPage extends Page {
     get newProblemButton () {
         return $ ("//button[normalize-space()='New Problem']");
     }
+    get container () {
+        return $ ("//body/div[@id='root']/div/div[2]");
+    }
+
+    get headerArr () {
+        return $$ ("MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1rtnrqa");
+    }
+
 
     get columns () {
         return $ ("//button[normalize-space()='Columns']");
@@ -63,11 +71,11 @@ class ProblemsPage extends Page {
     }
 
     get columnsTooltip () {
-        return $ ("//div[contains(@role,'tooltip')]");
+        return $ ("//div[@role='tooltip']");
     }
 
     get toggleColumnButtons() {
-        return $$ ("//input[@class='MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3']");
+        return $$ ("MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3");
     }
 
     get columnNamesArr() {
@@ -123,13 +131,15 @@ class ProblemsPage extends Page {
     }
 
     async getColumnNames (list) {
-        // const names = [];
-        // list.map(async (elem) => list.push(await (elem.getText())));
+        const names = [];
+        // list.map(async (elem) => names.push(await elem.getText()));
         // return names;
 
         for (let i = 0; i < list.length; i++) {
-            await list[i].getText();
+            const elem = await list[i].getText();
+            names.push(elem)
         }
+        return names;
     }
 
     // async toggleColumnNames (list) {
