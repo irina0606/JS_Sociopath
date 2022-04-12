@@ -15,7 +15,7 @@ class LoginPage extends Page {
     }
 
     get btnLogin() {
-        return $("button[type=\"submit\"]");
+        return $("button[type='submit']");
     }
 
     get titleOfInputEmailBox() {

@@ -34,8 +34,6 @@
     "selenium-standalone": "^8.0.10",
     "wdio-chromedriver-service": "^7.3.2",
     "wdio-wait-for": "^2.2.4"
-  },
-  "dependencies": {
-    "cypress": "^9.5.3"
   }
 }
+

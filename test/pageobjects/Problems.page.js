@@ -71,8 +71,10 @@ class ProblemsPage extends Page {
     }
 
     get columnsTooltip () {
-        return $ ("//div[@role='tooltip']");
+        return $ ("//div[@class='MuiDataGrid-panelWrapper css-1bvqkfl']");
     }
+
+    //".MuiDataGrid-panel"
 
     get toggleColumnButtons() {
         return $$ ("MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3");
